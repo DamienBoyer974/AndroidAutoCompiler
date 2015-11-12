@@ -26,7 +26,7 @@ print("Done !")
 
 #Init sources
 print("Okay, you have to tell wich sources you want to build.\n")
-print("1.CyanogenMod\n2.AOSP (in work)")
+print("1.CyanogenMod\n2.AOSP\n3.AOKP\n4.Paraoid Android\n5.OmniROM")
 
 choose = input()
 
@@ -52,6 +52,35 @@ if choose == "2":
     if v == "2":
         version = "android-6.0.0_r26"
     os.system("repo init -u https://www.android.googlesource.com/platform/manifest/ -b " + version)
+if choose == "3":
+    print("So you wanna do AOKP, huh ???\n")
+    print("But atleast tell me the branch you wanna do ???\n")
+#--KitKat links are missing, couldnt find 'em
+    print("1.Lollipop\n2.JellyBean\n")
+    choice=input()
+    if choice == 1 :
+         print ("Okay, so we're doing lollipop...\n")
+         os.system("repo init -u https://github.com/AOKP/platform_manifest.git -b lollipop -g all,kernel,device,vendor")
+    elif choice == 2 :
+        print ("We want Jellies !!!! \n")
+        os.system("repo init -u https://github.com/AOKP/platform_manifest.git -b jb -g all,kernel,device,vendor")
+    else :
+        print ("You probably need to work on your English")
+
+if choice == 4 :
+    print("Stay Paranoid....\n")
+    print("Which branch are we looking for ???\n")
+    print("Marshmallow\nLollipop")
+    choice=input()
+    if choice.capitalise() == "Lollipop" :
+        os.system("repo init -u https://github.com/AOSPA/platform_manifest.git -b lollipop-mr1")
+    elif choice.capitalise() == "Marshmallow" :
+         os.system("repo init -u https://github.com/AOSPA/platform_manifest.git -b marshmallow")
+    else :
+        print("You need to work on your english man")
+
+
+
 
 print("Repo is successfully initialized.\n")
 
@@ -69,7 +98,7 @@ if answer == "No":
 
 # Time to build
 print("Now we can build our ROM.\n")
-print("... but for wich device ? (Depending of the disponibility of your device at CM)\n")
+print("... but for which device ? (Depending of the support for your device by the ROM)\n")
 your_device = input()
 os.system("source build/envsetup.sh && brunch " + your_device)
 
