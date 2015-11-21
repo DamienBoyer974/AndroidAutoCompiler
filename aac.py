@@ -12,7 +12,10 @@ name_of_folder = input()
 os.system("mkdir -p " + name_of_folder)
 os.chdir(name_of_folder)
 print("\nThat's good, now just wait, we're gonna download things you need to build.")
-
+#Download repo
+os.system("curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo")
+os.system("chmod a+x ~/bin/repo")
+print("Okay repo is set up")
 #Download java
 os.system("sudo apt-add-repository ppa:webupd8team/java && sudo apt-get update && sudo apt-get install oracle-java7-installer")
 print("Okay, java is ready to work !")
