@@ -70,7 +70,7 @@ if choose == "3":
     else :
         print ("You probably need to work on your English")
 
-if choice == 4 :
+if choice == "4" :
     print("Stay Paranoid....\n")
     print("Which branch are we looking for ???\n")
     print("Marshmallow\nLollipop")
