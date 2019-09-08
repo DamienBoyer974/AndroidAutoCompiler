@@ -82,9 +82,6 @@ if choice == "4" :
     else :
         print("You need to work on your english man")
 
-
-
-
 print("Repo is successfully initialized.\n")
 
 # Time to download all that s***
